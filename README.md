@@ -1,4 +1,4 @@
-# ShelfLM v2
+﻿# ShelfLM v2
 
 **ShelfLM** 是一套**自研混合架构**的中文小/中型语言模型实验：不是「再包一层标准 Transformer」，而是把序列混合、稀疏注意力、压缩事实表与分层 MoE 重新组合后的训练代码开源，方便一起学习、复现与改进。
 
@@ -90,6 +90,22 @@ python vocab/train_spm.py --corpus runs/corpus_zh.txt --out-dir vocab/out --voca
 - `data/seed_zh.jsonl` 与 `data/samples/*.sample.jsonl` 仅为**演示用短样本**。  
 - 更大开源语料可通过 `data/stream_pretrain.py` 自行从 Hugging Face / 镜像拉取。  
 - **请勿**把私有/未授权语料直接推回本仓库。
+
+
+## 预训练权重（GitHub Release）
+
+完整 `model.pt`（约 3.5 GB）不进 git 主仓，放在 Release：
+
+**[v0.1.0-zhongce-step330900](https://github.com/Corey459/shelf-lm/releases/tag/v0.1.0-zhongce-step330900)**
+
+- tag `v2_300m_zhongce`，seed 42，step **330900**
+- 下载 `model.pt.part-aa` + `model.pt.part-ab` 后拼接：
+
+```bash
+cat model.pt.part-aa model.pt.part-ab > model.pt
+sha256sum -c model.pt.sha256
+# expected: 25ffc06299446c087c4f677e17ce5e889c07664168a6f1a8850bd70a3e7b190d
+```
 
 ## 已知局限（诚实版）
 
