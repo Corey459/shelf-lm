@@ -1,0 +1,33 @@
+{
+  "config": {
+    "vocab_size": 4096,
+    "d_model": 256,
+    "n_layers": 4,
+    "n_heads": 4,
+    "n_shelves": 2,
+    "experts_per_shelf": 4,
+    "top_k": 2,
+    "rank": 16,
+    "ffn_mult": 2,
+    "fact_rows": 1024,
+    "fact_dim": 32,
+    "fact_mode": "lowrank",
+    "attn_every": 2,
+    "tie_embeddings": true,
+    "state_gate_bias": 1.0,
+    "dropout": 0.0
+  },
+  "breakdown": {
+    "total": 4514576,
+    "embed": 1048576,
+    "fact": 40960,
+    "blocks": 3424784,
+    "state": 1053712,
+    "attn": 524800,
+    "moe": 1846272,
+    "head": 0,
+    "norm": 256,
+    "n_attn_layers": 2
+  },
+  "params_M": 4.514576
+}

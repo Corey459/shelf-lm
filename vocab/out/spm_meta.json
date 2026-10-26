@@ -1,0 +1,14 @@
+{
+  "prefix": "vocab/out/spm_zh_24576",
+  "model": "vocab/out/spm_zh_24576.model",
+  "vocab": "vocab/out/spm_zh_24576.vocab",
+  "vocab_size": 24576,
+  "model_type": "bpe",
+  "corpus": "runs/corpus_zh.txt",
+  "special": {
+    "unk": 0,
+    "bos": 1,
+    "eos": 2,
+    "pad": 3
+  }
+}

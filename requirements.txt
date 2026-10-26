@@ -1,0 +1,6 @@
+torch>=2.1
+sentencepiece>=0.1.99
+numpy>=1.24
+# optional streaming helpers
+datasets>=2.14
+huggingface_hub>=0.20

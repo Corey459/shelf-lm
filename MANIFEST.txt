@@ -1,0 +1,62 @@
+ShelfLM v2 OSS packaging manifest
+Primary source: lab training host "zhongce" tree `train/shelf_v2` (same revision used for latest shard train).
+Secondary check: lab HP tree `shelf-lm/shelf_v2` — core model/train/configs/vocab matched; not used as primary copy.
+
+=== INCLUDED ===
+ARCHITECTURE_NOTES.md
+README.md
+README_SOLO.md
+__init__.py
+configs/shelf_1b.json
+configs/shelf_1b.params.json
+configs/shelf_300m.json
+configs/shelf_300m.params.json
+configs/shelf_tiny.json
+configs/shelf_tiny.params.json
+data/prepare_corpus.py
+data/samples/extra_zh_short.sample.jsonl
+data/samples/knowledge_zh.sample.jsonl
+data/samples/opensource_belle_general.sample.jsonl
+data/samples/opensource_belle_school_math.sample.jsonl
+data/samples/opensource_firefly.sample.jsonl
+data/samples/reasoning_zh.sample.jsonl
+data/seed_zh.jsonl
+data/stream_pretrain.py
+examples/run_train_example.sh
+model_v2.py
+requirements.txt
+scripts/chat_smoke_cpu.py
+scripts/compare_short.py
+scripts/count_params.py
+train_v2.py
+vocab/export_spm.py
+vocab/out/export.itos.json
+vocab/out/export.json
+vocab/out/spm_meta.json
+vocab/out/spm_zh_24576.model
+vocab/out/spm_zh_24576.vocab
+vocab/train_spm.py
+MANIFEST.txt
+
+=== DELIBERATELY EXCLUDED ===
+runs/                                 # checkpoints, logs, built corpus artifacts
+*.pt / *.ckpt                         # trained weights
+__pycache__/ / *.pyc
+pip_torch.log                         # install log
+Host-absolute launch scripts          # replaced by examples/run_train_example.sh
+HANDOFF_*.md                          # machine handoff / access notes
+HP-only ops dumps                     # run_v2_hp.sh, curve/canvas JSON, .bak trainers
+data/domain_hp.jsonl                  # private/company-domain corpus (full)
+Full large jsonl corpora              # knowledge/reasoning/extra/opensource dumps; samples only
+.env / passwords / tokens / keys
+Intranet / jump-host / ERP ops scripts
+
+=== SENSITIVITY CLEANUP ===
+- Absolute host launch scripts omitted; example script uses repo-relative paths + env overrides.
+- HANDOFF docs omitted (access topology).
+- README_SOLO.md: absolute home paths rewritten to relative `.` / `python`.
+- Public README.md + ARCHITECTURE_NOTES.md added.
+- domain_hp and full large jsonl not shipped; small samples only.
+- Text scan for password/token/private-IP/env-prefix/private-key patterns: no credentials in shipped files
+  (hits for the English word "token" in NLP code comments only).
+- No LICENSE in upstream tree → README suggests MIT.

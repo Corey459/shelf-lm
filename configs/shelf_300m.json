@@ -1,0 +1,19 @@
+{
+  "vocab_size": 24576,
+  "d_model": 1024,
+  "n_layers": 18,
+  "n_heads": 16,
+  "n_shelves": 4,
+  "experts_per_shelf": 8,
+  "top_k": 2,
+  "rank": 64,
+  "ffn_mult": 2,
+  "fact_rows": 8192,
+  "fact_dim": 128,
+  "fact_mode": "lowrank",
+  "attn_every": 4,
+  "tie_embeddings": true,
+  "state_gate_bias": 1.5,
+  "dropout": 0.0,
+  "_comment": "Target ~300M. Single 5090 train; 5060 can push with smaller batch/seq."
+}
